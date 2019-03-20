@@ -1,0 +1,28 @@
+http://davidpowell.github.io/latex-publication-list.html
+
+curl 'http://inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=0' > pubs1.bib
+curl 'http://inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=251' > pubs2.bib
+curl 'http://inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=501' > pubs3.bib
+curl 'http://inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=751' > pubs4.bib
+curl 'http://inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=1001' > pubs5.bib
+curl 'http://inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=1251' > pubs6.bib
+
+cat pubs1.bib pubs2.bib pubs3.bib pubs4.bib pubs5.bib pubs6.bib > pubs.bib
+perl -i -pe 's/<\/?\w+>//g;s/<[^<]+pagebody[^>]+>//g' pubs.bib
+perl -i -pe 's/&gt;/\>/g' pubs.bib
+perl -i -pe 's/\\t\\Wmp/ tW/g' pubs.bib
+perl -i -pe 's/\\Wpm/ W/g' pubs.bib
+perl -i -pe 's/\\Qbar/\\bar{Q}/g' pubs.bib
+perl -i -pe 's/\\tbar/\\bar{t}/g' pubs.bib
+
+rm *.aux *.bbl *.bcf *.blg *.log *.pdf *.xml
+pdflatex pubs; biber pubs; pdflatex pubs
+pdflatex pubs_selected; biber pubs_selected; pdflatex pubs_selected
+
+"/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py" -o ./pubs_both.pdf ./pubs_selected.pdf ./pubs.pdf
+
+cp ./pubs*.pdf ~/repos/msneubauer.github.io/assets/pdf
+
+pandoc thesis_summary.text -s --mathml  -o thesis_summary.html
+pandoc thesis_popular.text -s --mathml  -o thesis_popular.html
+

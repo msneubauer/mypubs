@@ -1,0 +1,54 @@
+\documentclass{arcpubs}
+
+\usepackage{amsmath}
+\usepackage{tabularx}
+
+% Add one or more bibtex files containing papers, etc.
+\addbibresource{pubs_selected.bib}
+
+\StartYear{1900}
+% your papers will be matched only by last name
+\Author{Neubauer}
+
+% Add all citations to the 'relevant' category which should be starred
+%\addtocategory{relevant}{%
+%Smith2011,Jones2012,Bloggs2009,Bloggs2007a,
+%}
+
+\DeclareUnicodeCharacter{2217}{}
+\DeclareUnicodeCharacter{2212}{}
+\DeclareUnicodeCharacter{2113}{}
+\DeclareUnicodeCharacter{2009}{}
+\DeclareUnicodeCharacter{3BD}{}
+\DeclareUnicodeCharacter{3BC}{}
+\DeclareUnicodeCharacter{3B3}{}
+\DeclareUnicodeCharacter{3C8}{}
+\DeclareUnicodeCharacter{3D2}{}
+\DeclareUnicodeCharacter{3C4}{}
+\DeclareUnicodeCharacter{39B}{\Lambda}
+
+\sectionfont{\normalfont\large\underline}
+
+\begin{document}
+
+\section*{Selected Publications for Mark S. Neubauer}
+%\section*{}
+
+\nocite{*}
+\showbooks
+\showchapters
+\showarticles
+\showproceedings
+
+%\begin{center}
+%\begin{tabularx}{\textwidth}{ |c|p{3cm}|p{2cm}|p{2cm}|X|p{2.5cm}| }
+%\hline
+%Project ID & CI/PI Fellow Name/s & Amount Funded & Number of years & Project Title & Outputs \\
+%\hline
+%DPXXXXXXX & Bloggs, Smith & \$300,000 & 3 & Exciting Science from years gone by &
+%\cite{Jones2012} \\ % add all papers to this line which are associated with this grant
+%\hline
+%\end{tabularx}
+%\end{center}
+
+\end{document}
