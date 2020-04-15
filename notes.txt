@@ -1,11 +1,11 @@
 http://davidpowell.github.io/latex-publication-list.html
 
-curl 'http://inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=0' > pubs1.bib
-curl 'http://inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=251' > pubs2.bib
-curl 'http://inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=501' > pubs3.bib
-curl 'http://inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=751' > pubs4.bib
-curl 'http://inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=1001' > pubs5.bib
-curl 'http://inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=1251' > pubs6.bib
+curl 'http://old.inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=0' > pubs1.bib
+curl 'http://old.inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=251' > pubs2.bib
+curl 'http://old.inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=501' > pubs3.bib
+curl 'http://old.inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=751' > pubs4.bib
+curl 'http://old.inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=1001' > pubs5.bib
+curl 'http://old.inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=1251' > pubs6.bib
 
 cat pubs1.bib pubs2.bib pubs3.bib pubs4.bib pubs5.bib pubs6.bib > pubs.bib
 perl -i -pe 's/<\/?\w+>//g;s/<[^<]+pagebody[^>]+>//g' pubs.bib
