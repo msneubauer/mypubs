@@ -7,6 +7,10 @@ curl 'http://old.inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&
 curl 'http://old.inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=1001' > pubs5.bib
 curl 'http://old.inspirehep.net/search?p=f+ea+M.S.Neubauer.1&of=hx&em=B&sf=year&so=d&rg=250&jrec=1251' > pubs6.bib
 
+
+curl 'https://inspirehep.net/api/literature?q=a%20M.S.Neubauer%20and%20date%202000' -H 'accept: application/x-bibtex' > pubs_2000.bib
+
+
 cat pubs1.bib pubs2.bib pubs3.bib pubs4.bib pubs5.bib pubs6.bib > pubs.bib
 perl -i -pe 's/<\/?\w+>//g;s/<[^<]+pagebody[^>]+>//g' pubs.bib
 perl -i -pe 's/&gt;/\>/g' pubs.bib
@@ -14,6 +18,7 @@ perl -i -pe 's/\\t\\Wmp/ tW/g' pubs.bib
 perl -i -pe 's/\\Wpm/ W/g' pubs.bib
 perl -i -pe 's/\\Qbar/\\bar{Q}/g' pubs.bib
 perl -i -pe 's/\\tbar/\\bar{t}/g' pubs.bib
+perl -i -pe 's/\\Upsilon{/\\ensuremath{\\Upsilon/g' pubs.bib
 
 rm *.aux *.bbl *.bcf *.blg *.log *.pdf *.xml
 pdflatex pubs; biber pubs; pdflatex pubs
@@ -26,3 +31,7 @@ cp ./pubs*.pdf ~/repos/msneubauer.github.io/assets/pdf
 pandoc thesis_summary.text -s --mathml  -o thesis_summary.html
 pandoc thesis_popular.text -s --mathml  -o thesis_popular.html
 
+    title = "{Search for Higgs and Z Boson Decays to J/\ensuremath{\psi}\ensuremath{\gamma} and \Upsilon{}(nS)\ensuremath{\gamma} with the ATLAS Detector}",
+
+
+121801

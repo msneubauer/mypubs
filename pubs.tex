@@ -2,6 +2,7 @@
 
 \usepackage{amsmath}
 \usepackage{tabularx}
+\usepackage{textcomp}
 
 % Add one or more bibtex files containing papers, etc.
 \addbibresource{pubs.bib}
@@ -26,6 +27,10 @@
 \DeclareUnicodeCharacter{3D2}{}
 \DeclareUnicodeCharacter{3C4}{}
 \DeclareUnicodeCharacter{39B}{\Lambda}
+
+\newcommand{\etal}{{\it et al.}}
+
+\AtEveryBibitem{\clearfield{eprintclass}}
 
 \sectionfont{\normalfont\large\underline}
 
