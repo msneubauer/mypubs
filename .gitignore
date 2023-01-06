@@ -5,5 +5,8 @@
 *.log
 *.pdf
 *.xml
+*.fls
 pubs.bib
 pubs?.bib
+pubs.fdb_latexmk
+pubs.synctex.gz
