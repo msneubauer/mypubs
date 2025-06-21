@@ -1,7 +1,7 @@
 rm -f -- pubs.bib
 
 # i below is the year, e.g. 22 is 2022
-for i in $(seq -f "%02g" 24 0)
+for i in $(seq -f "%02g" 25 0)
 do
   curl 'https://inspirehep.net/api/literature?sort=mostrecent&size=1000&q=a%20M.S.Neubauer%20and%20date%2020'$i -H 'accept: application/x-bibtex' >> pubs.bib
 done
