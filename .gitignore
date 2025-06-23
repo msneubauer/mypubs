@@ -6,8 +6,8 @@
 *.pdf
 *.xml
 *.fls
+*.gz
 *latexmk
 pubs.bib
 pubs?.bib
 pubs.fdb_latexmk
-pubs.synctex.gz
